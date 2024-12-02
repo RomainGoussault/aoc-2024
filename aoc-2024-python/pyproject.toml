@@ -1,5 +1,5 @@
 [project]
-name = "aoc-2024"
+name = "aoc-2024-python"
 version = "0.1.0"
 description = "Advent of Code 2024"
 readme = "README.md"
