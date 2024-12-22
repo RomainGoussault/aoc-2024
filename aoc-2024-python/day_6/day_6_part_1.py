@@ -41,6 +41,7 @@ def is_in_bounds(coord, map):
         and coord[1] < map.shape[1]
     )
 
+
 map = file_2_numpy("input")
 print(map)
 
