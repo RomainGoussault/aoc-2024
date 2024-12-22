@@ -48,6 +48,7 @@ def middle_number(pages: list) -> int:
 sum = 0
 inccorect_updates = []
 
+
 def get_wrong_pages(update, i, page):
     update_set = set(update)
     pages_that_should_be_before_set = pages_that_should_be_before(page) & update_set
@@ -58,35 +59,33 @@ def get_wrong_pages(update, i, page):
     return wrong_pages
 
 
-
 for update in updates_list:
-
     is_good = True
     for i, page in enumerate(update):
-
         wrong_pages = get_wrong_pages(update, i, page)
-        
+
         if len(wrong_pages) > 0:
             is_good = False
             inccorect_updates.append(update)
             break
 
     if is_good:
-
         sum += middle_number(update)
 
 print(f"part 1, {sum}")
+
 
 def fix_order(update, i, wrong_pages) -> list:
     for wrong_page in wrong_pages:
         idx_wrong = update.index(wrong_page)
         idx_current = i
-            # print(f" index of wrong page: {idx_wrong}")
-            # print(f" index of current page: {idx_current}")
+        # print(f" index of wrong page: {idx_wrong}")
+        # print(f" index of current page: {idx_current}")
         update.pop(idx_wrong)
         update.insert(idx_current, wrong_page)
 
     return update
+
 
 sum = 0
 for update in inccorect_updates:
@@ -103,7 +102,7 @@ for update in inccorect_updates:
                 update = fix_order(update, i, wrong_pages)
                 is_good = False
                 break
-    
-    sum +=middle_number(update)
+
+    sum += middle_number(update)
 
 print(f"part 2, {sum}")
