@@ -28,12 +28,12 @@ def is_in_bounds(coord, map):
     )
 
 
-def get_antinodes_coords(antenna_0: tuple, antenna_1: tuple, map_size: int) -> list[tuple]:
-
+def get_antinodes_coords(
+    antenna_0: tuple, antenna_1: tuple, map_size: int
+) -> list[tuple]:
     antinode_coords = []
 
     for k in range(map_size):
-
         i_first = antenna_0[0]
         j_first = antenna_0[1]
         # print(f"first: i={i_first}, j={j_first}")
@@ -47,7 +47,7 @@ def get_antinodes_coords(antenna_0: tuple, antenna_1: tuple, map_size: int) -> l
         antinode_coords.append(antinode_0_coord)
 
         i_antinode_1 = i_second + k * (i_second - i_first)
-        j_antinode_1 = j_second + k *(j_second - j_first)
+        j_antinode_1 = j_second + k * (j_second - j_first)
         antinode_1_coord = (i_antinode_1, j_antinode_1)
         antinode_coords.append(antinode_1_coord)
 
@@ -55,9 +55,8 @@ def get_antinodes_coords(antenna_0: tuple, antenna_1: tuple, map_size: int) -> l
 
 
 def get_antinode_set(antenna_list: list, map: np.ndarray) -> set:
-
     antinode_set = set()
-    
+
     for antenna_0 in antenna_list:
         for antenna_1 in antenna_list:
             if antenna_0 == antenna_1:
@@ -78,7 +77,7 @@ map_size = np.max(map.shape)
 print(f"map_size: {map_size}")
 
 unique_char = np.unique(map).tolist()
-unique_char.remove('.')
+unique_char.remove(".")
 print(unique_char)
 
 total_antinode_set = set()

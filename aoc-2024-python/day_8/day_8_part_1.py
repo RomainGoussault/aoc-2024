@@ -48,9 +48,8 @@ def get_antinodes_coords(antenna_0: tuple, antenna_1: tuple) -> list[tuple]:
 
 
 def get_antinode_set(antenna_list: list, map: np.ndarray) -> set:
-
     antinode_set = set()
-    
+
     for antenna_0 in antenna_list:
         for antenna_1 in antenna_list:
             if antenna_0 == antenna_1:
@@ -69,7 +68,7 @@ map = file_2_numpy("input")
 # print(map)
 
 unique_char = np.unique(map).tolist()
-unique_char.remove('.')
+unique_char.remove(".")
 print(unique_char)
 
 total_antinode_set = set()
