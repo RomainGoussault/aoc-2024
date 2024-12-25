@@ -1,5 +1,3 @@
-
-
 def build_block_list(map: str) -> dict:
     block_list = []
     file_ID = -1
