@@ -31,7 +31,7 @@ def is_in_bounds(coord, map):
 
 def nine_finder(map, start):
     directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    nine_localisation = set()
+    nine_localisation = []
     visited = set()
     queue = deque([start])
     visited.add(start)
@@ -42,7 +42,7 @@ def nine_finder(map, start):
 
         if map[localization] == "9":
             print("Found 9")
-            nine_localisation.add(localization)
+            nine_localisation.append(localization)
 
         neighbors = []
         for direction in directions:
