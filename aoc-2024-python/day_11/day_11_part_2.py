@@ -16,7 +16,6 @@ def has_even_digit(stone: int) -> bool:
 
 @cache
 def blink(stone: int, depth: int) -> int:
-
     if depth == 0:
         return 1
 
@@ -28,7 +27,7 @@ def blink(stone: int, depth: int) -> int:
         first_part = stone_str[: len(stone_str) // 2]
         second_part = stone_str[len(stone_str) // 2 :]
         return blink(int(first_part), depth - 1) + blink(int(second_part), depth - 1)
-    
+
     else:
         return blink(stone * 2024, depth - 1)
 
