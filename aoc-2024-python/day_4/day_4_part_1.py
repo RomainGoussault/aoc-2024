@@ -1,4 +1,3 @@
-
 data = open("input").readlines()
 
 H = len(data)
@@ -6,7 +5,7 @@ W = len(data[0].strip())
 print("Height: ", H)
 print("Width: ", W)
 
-grid = {(x, y):data[y][x] for x in range(W) for y in range(H)}
+grid = {(x, y): data[y][x] for x in range(W) for y in range(H)}
 
 deltas = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]
 sum = 0
@@ -20,6 +19,6 @@ for x, y in grid:
             candidate = candidate + grid.get((x + i * dx, y + i * dy), "")
         if candidate == target:
             sum += 1
-        
+
 
 print(f"sum: {sum}")
