@@ -1,6 +1,6 @@
 from collections import deque
 
-data = open("input").readlines()
+data = open("aoc-2024-python/day_12/input").readlines()
 
 H = len(data)
 W = len(data[0].strip())
@@ -10,8 +10,8 @@ print("Width: ", W)
 grid = {(x, y): data[y][x] for x in range(W) for y in range(H)}
 grid_keys = set(grid.keys())
 
+
 def bfs(grid: dict, start: tuple) -> set:
-    
     plant = grid.get(start)
     loc_visited = set()
     area_coords = set()
@@ -19,7 +19,6 @@ def bfs(grid: dict, start: tuple) -> set:
     deltas = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
     while queue:
-
         loc = queue.popleft()
 
         if loc in loc_visited:
@@ -38,7 +37,6 @@ def bfs(grid: dict, start: tuple) -> set:
 
 
 def compute_perimeter(area_coords: set) -> int:
-
     perimeter = 0
 
     for coord in area_coords:
@@ -47,14 +45,13 @@ def compute_perimeter(area_coords: set) -> int:
         for dx, dy in deltas:
             if (coord[0] + dx, coord[1] + dy) not in area_coords:
                 perimeter += 1
-    
+
     return perimeter
 
 
 visited = set()
 price_sum = 0
 for loc in grid_keys:
-
     if loc not in visited:
         print(f"Dealing with crop at {grid.get(loc)}")
         area_coords, plant = bfs(grid, loc)
@@ -68,4 +65,3 @@ for loc in grid_keys:
         price_sum += price
 
 print(price_sum)
-
